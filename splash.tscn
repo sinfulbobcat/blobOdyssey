@@ -1,0 +1,224 @@
+[gd_scene load_steps=16 format=3 uid="uid://qwehqrlrhi67"]
+
+[ext_resource type="Script" uid="uid://re63pi0ghuf8" path="res://splash.gd" id="1_13jq6"]
+[ext_resource type="Texture2D" uid="uid://ce2lpiplu1sf6" path="res://blob.png" id="1_b04ml"]
+[ext_resource type="Texture2D" uid="uid://deo057gpy2ogb" path="res://bobnobg.png" id="2_50j67"]
+
+[sub_resource type="Gradient" id="Gradient_13jq6"]
+offsets = PackedFloat32Array(0, 0.22916667, 0.45833334, 0.7361111)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_13jq6"]
+gradient = SubResource("Gradient_13jq6")
+
+[sub_resource type="Curve" id="Curve_50j67"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.0058823526, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xoh7v"]
+curve = SubResource("Curve_50j67")
+
+[sub_resource type="Curve" id="Curve_b04ml"]
+_data = [Vector2(0, 0.033707857), 0.0, 0.0, 0, 0, Vector2(0.55294114, 0.5617978), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wyt6d"]
+curve = SubResource("Curve_b04ml")
+
+[sub_resource type="Curve" id="Curve_13jq6"]
+_data = [Vector2(0.021126762, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.24719107), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tbd5x"]
+curve = SubResource("Curve_13jq6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tbd5x"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 500.0
+radial_accel_max = 1000.0
+radial_accel_curve = SubResource("CurveTexture_xoh7v")
+damping_min = 10.417
+damping_max = 16.667
+scale_curve = SubResource("CurveTexture_wyt6d")
+color_ramp = SubResource("GradientTexture1D_13jq6")
+turbulence_enabled = true
+turbulence_influence_over_life = SubResource("CurveTexture_tbd5x")
+
+[sub_resource type="Animation" id="Animation_xoh7v"]
+resource_name = "In"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blobs/Particles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blobs/Bobcatlogo:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, 0, 0, 0.061666667, 0, 1, -0.061666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.37)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blobs/Bobcatlogo:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, 0, 0, 0.061666667, 0, 1, -0.061666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.37)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blobs/Bobcatlogo:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, 0, 0, 0.061666667, 0, 1, -0.061666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.37)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blobs/Bobcatlogo:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.061666667, 0.16666667, 1, -0.061666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.37)
+}
+
+[sub_resource type="Animation" id="Animation_wyt6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blobs/Particles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blobs/Bobcatlogo:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blobs/Bobcatlogo:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blobs/Bobcatlogo:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blobs/Bobcatlogo:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbd5x"]
+_data = {
+&"In": SubResource("Animation_xoh7v"),
+&"RESET": SubResource("Animation_wyt6d")
+}
+
+[node name="Splash" type="Node2D"]
+script = ExtResource("1_13jq6")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_left = -43.0
+offset_top = -34.0
+offset_right = 1178.0
+offset_bottom = 676.0
+color = Color(0.11858062, 0.118581794, 0.11858068, 1)
+
+[node name="Blobs" type="Node2D" parent="."]
+
+[node name="Particles" type="GPUParticles2D" parent="Blobs"]
+position = Vector2(572, 323)
+amount = 50
+texture = ExtResource("1_b04ml")
+lifetime = 2.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-1788.2115, -1784.1726, 3706.8203, 3598.6543)
+draw_order = 0
+trail_enabled = true
+trail_lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_tbd5x")
+
+[node name="Bobcatlogo" type="Sprite2D" parent="Blobs"]
+top_level = true
+position = Vector2(577, 320)
+scale = Vector2(0.6293103, 0.6293103)
+texture = ExtResource("2_50j67")
+region_enabled = true
+region_rect = Rect2(244, 280, 609, 517)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tbd5x")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
